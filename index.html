@@ -1,0 +1,128 @@
+<style>
+.polisher{
+	 background-image: url("risque.jpg");
+	 width: 1024px;
+	 height: 491px;
+	margin-top: -491px;
+	position: relative;
+	z-index: -1;
+}
+.polisher-text{
+	color: #fff;
+	font-size: 6.2pt;
+	text-align: center;
+	position: relative;
+	top: 417px;
+	width: 141px;
+	height: 23px;
+	float: left;
+	overflow: hidden;
+	font-family: Calibri, sans-serif; 
+	letter-spacing: 1px;
+	padding: 2px;
+}
+.pol1{
+	left: 32px;
+}
+.pol2{
+	left: 96px;
+}
+.pol3{
+	left: 153px;
+}
+.pol4{
+	left: 209px;
+}
+.pol5{
+	left: 264px;
+}
+.pol-input{
+	width: 100%;
+	padding: 8px;
+	margin: 8px;
+	border: 1px solid;
+    border-radius: 10px;
+}
+.left{
+	float:left;
+	padding: 20px;
+}
+.long{
+	width: 30%;
+}
+</style>
+
+
+
+<html lang="en" hola_ext_inject="inited"><head>
+
+    <meta charset="utf-8">
+    <title>Empodere uma mulher</title>
+
+</head>
+<body>
+	<center><!-- VOU USAR CENTER PORQUE SIM. FUNCIONA, OIRAS! -->
+		<div class="container">
+			<div class="left">
+				<h2>Que #homensrisque, o quê! Empodere uma mulher!</h2>
+				Escolhe as frases e clique com o botão direito em cima da imagem para salvar.
+			</div>
+			<div class="left long">
+				<input type="text" class="pol-input" id="pol1-text" value="Força, Renata, você vai conseguir sair desse relacionamento abusivo"/>
+				<br/>
+				<input type="text" class="pol-input" id="pol2-text" value="Fernanda tem SIM as decisões sobre o próprio corpo"/>
+				<br/>
+				<input type="text" class="pol-input" id="pol3-text" value="Lorena é LINDA com seu cabelo crespo"/>
+				<br/>
+				<input type="text" class="pol-input" id="pol4-text" value="Cíntia é maravilhosa do jeitinho que ela é"/>
+				<br/>
+				<input type="text" class="pol-input" id="pol5-text" value="Ana sabe que ser mulher não é ter uma vagina"/>
+			</div>
+			<div class="">
+				Feito por <a href="https://twitter.com/etiene_d" target="_blank">@etiene_d</a>, inspirado <a href="https://twitter.com/Marycmuller/status/580076597824208896/photo/1" target="_blank">neste tweet</a> da <a href="https://twitter.com/Marycmuller" target="_blank">@Marycmuller</a>.
+				<br/>
+				<br/>
+				<a href="https://github.com/Etiene/empodereumamulher" target="_blank">Código</a>
+
+			</div>
+		</div>
+		<div id="polisher-img"></div>
+		<div class = "polisher" id = "polisher">
+			<div class="polisher-text pol1"></div>
+			<div class="polisher-text pol2"></div>
+			<div class="polisher-text pol3"></div>
+			<div class="polisher-text pol4"></div>
+			<div class="polisher-text pol5"></div>
+		</div>
+	</center>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/shtml2canvas.js"></script>
+<script type="text/javascript" src="js/jquery.plugin.html2canvas.js"></script>
+	<script>
+		function replace(){
+			$(".pol1").html($("#pol1-text").val());
+			$(".pol2").html($("#pol2-text").val());
+			$(".pol3").html($("#pol3-text").val());
+			$(".pol4").html($("#pol4-text").val());
+			$(".pol5").html($("#pol5-text").val());
+
+
+	        html2canvas($("#polisher"), {
+	            onrendered: function(canvas) {
+	                theCanvas = canvas;
+	                $("#polisher-img").html(canvas);
+
+	            }
+	        });
+
+		}
+		replace();
+		$('.pol-input').keyup(replace);
+
+
+    $("#salvar").click(function() { 
+    	
+    });
+	</script>
+</body>
+</html>
